@@ -9,12 +9,12 @@ Page.editor = CodeMirror.fromTextArea(document.getElementById('editor_textarea')
 Page.prototype = new Page();
 Page.prototype.constructor = Page;
 
-Page.prototype.inputFile = function() {
-	return document.getElementById('file_input_file');
+Page.prototype.inputUrl = function() {
+	return document.getElementById('get_input').value;
 };
 
-Page.prototype.inputFileName = function() {
-	return document.getElementById('file_input_name');
+Page.prototype.inputFile = function() {
+	return document.getElementById('file_input');
 };
 
 Page.prototype.getInputText = function() {
