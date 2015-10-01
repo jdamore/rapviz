@@ -42,12 +42,19 @@ body {
 	float: left;
 }
 
-.left-50 {
+.left-m50 {
 	float: left;
 	position: relative;
 	left: -50px;
 	top: 0px;
     margin-right: -50px;
+}
+
+.left-p10 {
+	float: left;
+	position: relative;
+	left: 10px;
+	top: 0px;
 }
 
 .right {
@@ -61,6 +68,7 @@ body {
 }
 
 .get_input  {
+	margin-left: 10px;
 	margin-top: 5px;
 	width: 50%;
 	height: 70%;
