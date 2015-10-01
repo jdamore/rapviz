@@ -1,0 +1,43 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="./style.css" />
+<link rel="stylesheet" href="./ext/codemirror/lib/codemirror.css">
+
+</head>
+
+<body onload="new Loader().load()">
+	<span id="error" class="error"></span>
+	<div>
+		<span class="inputPane">
+ 			<div class="controls_div">
+				<input type="text" id="file_input_name" class="file_input_name" readonly="readonly">
+				<div class="file_input">
+  					<button id="file_input_button" type="button" class="button" />Browse</button>
+  					<input id="file_input_file" type="file" class="file_input_file" onchange="new Loader().onchange(this.value)" />
+  				</div>
+			<button id="save_button" class="button" type="button" onclick="new Saver().save();">Save</button>
+			<button id="draw_button" class="button" type="button" onclick="new Drawer().draw();">Draw</button>
+			</div>
+			<textarea id="editor_textarea" rows="80" placeholder="add JSON or YAML specification here"></textarea>
+		</span>
+		<span id="output_span" class="outputPane"></span>
+	</div>
+</body>
+
+<script src="./ext/codemirror/lib/codemirror.js"></script>
+<script src="./ext/codemirror/mode/yaml/yaml.js"></script>
+<script src="./ext/codemirror/mode/javascript/javascript.js"></script>
+
+<script src="./ext/viz.js"></script>
+<script src="./ext/yaml.js"></script>
+<script src="./ext/underscore.min.js"></script>
+
+<script src="./common.js"></script>
+<script src="./page.js"></script>
+<script src="./drawer.js"></script>
+<script src="./loader.js"></script>
+<script src="./visualizer.js"></script>
+<script src="./saver.js"></script>
+
+</html>
