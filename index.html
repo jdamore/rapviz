@@ -11,13 +11,17 @@
 	<div>
 		<span class="inputPane">
  			<div class="controls_div">
-				<input type="text" id="file_input_name" class="file_input_name" readonly="readonly">
+				<!-- <input type="text" id="file_input_name" class="file_input_name" readonly="readonly">
 				<div class="file_input">
   					<button id="file_input_button" type="button" class="button" />Browse</button>
   					<input id="file_input_file" type="file" class="file_input_file" onchange="new Loader().onchange(this.value)" />
-  				</div>
-			<button id="save_button" class="button" type="button" onclick="new Saver().save();">Save</button>
-			<button id="draw_button" class="button" type="button" onclick="new Drawer().draw();">Draw</button>
+  				</div> -->
+			<button id="save_button" class="button left" type="button" onclick="new Saver().save();">Save</button>
+			<button id="open_button" class="button left" type="button">Open</button>
+			<input id="file_input" type="file" class="file_input left-50" onchange="new Loader().onchange(this.value)" />
+			<button id="get_button" class="button left" type="button" onclick="new Getter().get();">Get</button>
+			<input type="text" id="get_input" class="get_input" placeholder="http://rapviz.corsamore.com/input/test.yml"/>
+			<button id="draw_button" class="button right" type="button" onclick="new Drawer().draw();">Draw</button>
 			</div>
 			<textarea id="editor_textarea" rows="80" placeholder="add JSON or YAML specification here"></textarea>
 		</span>
@@ -39,5 +43,6 @@
 <script src="./loader.js"></script>
 <script src="./visualizer.js"></script>
 <script src="./saver.js"></script>
+<script src="./getter.js"></script>
 
 </html>

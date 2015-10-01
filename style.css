@@ -38,33 +38,37 @@ body {
 	font-size: 11pt;
 }
 
+.left {
+	float: left;
+}
+
+.left-50 {
+	float: left;
+	position: relative;
+	left: -50px;
+	top: 0px;
+    margin-right: -50px;
+}
+
+.right {
+	float: right;
+}
+
 .button {
 	font-size: 11pt;
 	margin: 5px 2px 5px 2px;
+	width: 50px;
 }
 
-#draw_button {
-	float: right;
-}
-
-#save_button {
-	float: right;
-}
-
-.file_input_name  {
+.get_input  {
 	margin-top: 5px;
-	width: 55%;
+	width: 50%;
 	height: 70%;
 }
 
 
-.file_input {
-	float: left;
-}
-
-.file_input_button  {
+/*.file_input_button  {
 	width: 80px;
-	/*position: absolute;*/
 	top: 0px;
     border: 1px solid #F0F0EE;
     padding: 2px 8px 2px 8px; 
@@ -72,16 +76,11 @@ body {
     height: 25px; 
     margin: 0px; 
     margin-right: 5px; 
-}
+}*/
 
-.file_input_file  {
-	width: 80px;
+.file_input  {
+	width: 50px;
 	height: 25px;
-	font-size: 45px;
-	position: absolute;
-	left: 0px;
-	top: 0px;
 	cursor: pointer;
-
     opacity: 0;filter:alpha(opacity=0);-ms-filter:"alpha(opacity=0)";-khtml-opacity:0;-moz-opacity:0; 
 }
