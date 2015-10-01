@@ -13,9 +13,9 @@
  			<div class="controls_div">
 				<button id="save_button" class="button left" type="button" onclick="new Saver().save();">Save</button>
 				<button id="open_button" class="button left" type="button">Open</button>
-				<input id="file_input" type="file" class="file_input left-50" onchange="new Loader().onchange(this.value)" />
-				<button id="get_button" class="button left" type="button" onclick="new Getter().get();">Get</button>
-				<input type="text" id="get_input" class="get_input" value="http://rapviz.corsamore.com/input/test.yml"/>
+				<input id="file_input" type="file" class="file_input left-m50" onchange="new Loader().onchange(this.value)" />
+				<button id="get_button" class="button left-p10" type="button" onclick="new Getter().get();">Get</button>
+				<input type="text" id="get_input" class="get_input left" value="http://rapviz.corsamore.com/input/test.yml"/>
 				<button id="draw_button" class="button right" type="button" onclick="new Drawer().draw();">Draw</button>
 			</div>
 			<textarea id="editor_textarea" rows="80" placeholder="add JSON or YAML specification here"></textarea>
