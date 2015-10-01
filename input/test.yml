@@ -1,0 +1,70 @@
+- name: Online Ordering
+
+  components:
+
+    - name : Ordering
+      type : digital
+
+    - name : Backend Services
+
+    - name : Data Services
+
+    - name : Payment
+      type : external
+
+    - name : Procurement
+      type : backend
+
+  dependencies:
+
+    - from  : Ordering
+      to    : Backend Services
+
+    - from  : Ordering
+      to    : Data Services
+
+    - from  : Ordering
+      to    : Database
+
+    - from  : Ordering
+      to    : Payment
+      label : redirect
+
+    - from  : Adyen
+      to    : Backend Services
+      label : callback endpoint
+
+    - from  : Backend Services
+      to    : Data Services
+
+    - from  : Backend Services
+      to    : Database
+
+    - from  : Data Services
+      to    : Database
+
+    - from  : Backend Services
+      to    : Procurement
+      type  : async
+
+
+- name: SMS Ordering
+
+  components:
+
+    - name : Ordering
+
+    - name : Backend Services
+
+  dependencies:
+
+    - from  : Ordering
+      to    : Data Services
+
+    - from  : Ordering
+      to    : Database
+
+    - from  : Backend Services
+      to    : Procurement
+
+- name: Secret Project
