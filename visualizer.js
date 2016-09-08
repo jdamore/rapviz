@@ -34,15 +34,7 @@ Visualizer.prototype.vizProject = function(project) {
     this.page.outputSpan().innerHTML += Viz(digraph);
 }
 
-
-Visualizer.prototype.compStyleMap = {
-    none:       { shape: '',    style: '',          color: '' },
-    digital:    { shape: '',    style: 'filled',    color: '.1 .1 1.0' },
-    backend:    { shape: 'box', style: 'filled',    color: '1.0 .3 .7' },
-    external:   { shape: 'box', style: 'filled',    color: '.7 .3 1.0' }
-}
-
-Visualizer.prototype.depStyleMap = {
+Visualizer.prototype.dependencyStyleMap = {
     none:   { style: '' },
     sync:   { style: 'filled' },
     async:  { style: 'dotted' }
@@ -52,9 +44,9 @@ Visualizer.prototype.vizComponent = function(comp) {
 
     var compString = String(this.edgeTemplate);
     compString = compString.replace('$name', comp.name);
-    compString = compString.replace('$shape', comp.type == null ? this.compStyleMap.none.shape : this.compStyleMap[comp.type].shape);
-    compString = compString.replace('$style', comp.type == null ? this.compStyleMap.none.style : this.compStyleMap[comp.type].style);
-    compString = compString.replace('$color', comp.type == null ? this.compStyleMap.none.color : this.compStyleMap[comp.type].color);
+    compString = compString.replace('$shape', comp.shape == null ? '' : comp.shape);
+    compString = compString.replace('$style', comp.style == null ? '' : comp.style);
+    compString = compString.replace('$color', comp.color == null ? '' : comp.color);
     return compString
 };
 
@@ -63,7 +55,7 @@ Visualizer.prototype.vizDependency = function(dep) {
     var depString = String(this.verticeTemplate);
     depString = depString.replace('$from', dep.from);
     depString = depString.replace('$to', dep.to);
-    depString = depString.replace('$style', dep.type == null ? this.depStyleMap.none.style : this.depStyleMap[dep.type].style);
+    depString = depString.replace('$style', dep.type == null ? this.dependencyStyleMap.none.style : this.dependencyStyleMap[dep.type].style);
     depString = depString.replace('$label', dep.label == null ? '' : dep.label);
     return depString;
 };

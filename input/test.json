@@ -4,18 +4,20 @@
 		"components": [
 			{
 				"name": "Ordering",
-				"type": "digital"
+				"style": "filled",
+				"color": "green"
 			},
 			{
 				"name": "Backend Services"
 			},
 			{
 				"name": "Payment",
-				"type": "external"
+				"color": "red"
 			},
 			{
 				"name": "Procurement",
-				"type": "backend"
+				"shape": "box",
+				"style": "rounded,filled"
 			}
 		],
 		"dependencies": [
