@@ -1,0 +1,50 @@
+- name: RapViz
+
+  components:
+    - name: index.html
+    - name: common.js
+    - name: drawer.js
+    - name: getter.js
+    - name: loader.js
+    - name: page.js
+    - name: saver.js
+    - name: visualizer.js
+
+  dependencies:
+    - from: index.html
+      to: common.js
+      type: async
+    - from: index.html
+      to: getter.js
+      type: async
+    - from: index.html
+      to: drawer.js
+      type: async
+    - from: index.html
+      to: loader.js
+      type: async
+    - from: index.html
+      to: page.js
+      type: async
+    - from: index.html
+      to: saver.js
+      type: async
+    - from: index.html
+      to: visualizer.js
+      type: async
+    - from: drawer.js
+      to: common.js
+    - from: drawer.js
+      to: page.js
+    - from: drawer.js
+      to: visualizer.js
+    - from: getter.js
+      to: page.js
+    - from: getter.js
+      to: drawer.js
+    - from: loader.js
+      to: page.js
+    - from: loader.js
+      to: drawer.js
+    - from: visualizer.js
+      to: page.js

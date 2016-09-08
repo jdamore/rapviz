@@ -1,5 +1,6 @@
 function Drawer() {
     this.page = new Page();
+    this.visualizer = new Visualizer();
 }
 
 Drawer.prototype = new Drawer();
@@ -11,10 +12,10 @@ Drawer.prototype.draw = function()  {
     console.log('Will draw ' + inputText);
     try {
         if(isYaml(inputText)) {
-            new Visualizer(YAML.parse(inputText)).viz();
+            this.visualizer.viz(YAML.parse(inputText));
         }
         else if(isJson(inputText)) {
-            new Visualizer(eval(inputText)).viz();
+            this.visualizer.viz(eval(inputText));
         }
         else {
             this.page.error('Unrecognised input format. Can only read YAML or JSON.');

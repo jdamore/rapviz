@@ -1,7 +1,5 @@
 function Visualizer(projects) {
-  this.projects = projects;
   this.page = new Page();
-  this.outputSpan = this.page.outputSpan();
 }
 
 Visualizer.prototype = new Visualizer();
@@ -10,10 +8,10 @@ Visualizer.prototype.constructor = Visualizer;
 Visualizer.prototype.edgeTemplate = '"$name" [shape="$shape", style="$style", color="$color"];';
 Visualizer.prototype.verticeTemplate = '"$from" -> "$to" [style="$style", label="$label"];';
 
-Visualizer.prototype.viz = function() {
+Visualizer.prototype.viz = function(projects) {
 
-    this.outputSpan.innerHTML = '';
-    _.each(this.projects, this.vizProject.bind(this));
+    this.page.outputSpan().innerHTML = '';
+    _.each(projects, this.vizProject.bind(this));
 };
 
 Visualizer.prototype.vizProject = function(project) {
@@ -32,8 +30,8 @@ Visualizer.prototype.vizProject = function(project) {
     digraph += ' }';
     console.log(digraph);
     
-    this.outputSpan.innerHTML += '<h1>'+project.name+'</h1>';
-    this.outputSpan.innerHTML += Viz(digraph);
+    this.page.outputSpan().innerHTML += '<h1>'+project.name+'</h1>';
+    this.page.outputSpan().innerHTML += Viz(digraph);
 }
 
 
