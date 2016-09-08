@@ -57,7 +57,8 @@
 			{ 
 				"from": "Backend Services", 
 				"to": "Procurement",
-				"type": "async"
+				"style": "dotted",
+				"color": "red"
 			}
 		]
 	},

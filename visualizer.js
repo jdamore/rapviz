@@ -6,7 +6,7 @@ Visualizer.prototype = new Visualizer();
 Visualizer.prototype.constructor = Visualizer;
 
 Visualizer.prototype.edgeTemplate = '"$name" [shape="$shape", style="$style", color="$color"];';
-Visualizer.prototype.verticeTemplate = '"$from" -> "$to" [style="$style", label="$label"];';
+Visualizer.prototype.verticeTemplate = '"$from" -> "$to" [style="$style", label="$label", color="$color"];';
 
 Visualizer.prototype.viz = function(projects) {
 
@@ -34,12 +34,6 @@ Visualizer.prototype.vizProject = function(project) {
     this.page.outputSpan().innerHTML += Viz(digraph);
 }
 
-Visualizer.prototype.dependencyStyleMap = {
-    none:   { style: '' },
-    sync:   { style: 'filled' },
-    async:  { style: 'dotted' }
-}
-
 Visualizer.prototype.vizComponent = function(comp) {
 
     var compString = String(this.edgeTemplate);
@@ -55,8 +49,9 @@ Visualizer.prototype.vizDependency = function(dep) {
     var depString = String(this.verticeTemplate);
     depString = depString.replace('$from', dep.from);
     depString = depString.replace('$to', dep.to);
-    depString = depString.replace('$style', dep.type == null ? this.dependencyStyleMap.none.style : this.dependencyStyleMap[dep.type].style);
+    depString = depString.replace('$style', dep.style == null ? '' : dep.style);
     depString = depString.replace('$label', dep.label == null ? '' : dep.label);
+    depString = depString.replace('$color', dep.color == null ? '' : dep.color);
     return depString;
 };
 
