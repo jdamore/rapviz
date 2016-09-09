@@ -10,7 +10,7 @@ Visualizer.prototype = new Visualizer();
 Visualizer.prototype.constructor = Visualizer;
 
 Visualizer.prototype.edgeTemplate = '"$name" [shape="$shape", style="$style", color="$color"];';
-Visualizer.prototype.verticeTemplate = '"$from" -> "$to" [style="$style", label="$label", color="$color"];';
+Visualizer.prototype.verticeTemplate = '"$from" -> "$to" [dir="$dir", style="$style", label="$label", color="$color"];';
 
 Visualizer.prototype.viz = function(projects) {
 
@@ -66,6 +66,7 @@ Visualizer.prototype.vizDependency = function(dep) {
     var depString = String(this.verticeTemplate);
     depString = depString.replace('$from', dep.from);
     depString = depString.replace('$to', dep.to);
+    depString = depString.replace('$dir', dep.dir == null ? '' : dep.dir);
     depString = depString.replace('$style', dep.style == null ? '' : dep.style);
     depString = depString.replace('$label', dep.label == null ? '' : dep.label);
     depString = depString.replace('$color', dep.color == null ? '' : dep.color);
