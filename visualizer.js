@@ -2,6 +2,10 @@ function Visualizer(projects) {
   this.page = new Page();
 }
 
+function onlyUniqueAndNonNull(value, index, self) { 
+    return value !=null && self.indexOf(value) === index;
+}
+
 Visualizer.prototype = new Visualizer();
 Visualizer.prototype.constructor = Visualizer;
 
@@ -13,6 +17,19 @@ Visualizer.prototype.viz = function(projects) {
     this.page.outputSpan().innerHTML = '';
     _.each(projects, this.vizProject.bind(this));
 };
+
+Visualizer.prototype.gviz = function(digraph) {
+
+    this.page.outputSpan().innerHTML = '';
+    this.vizDigraph(digraph);
+};
+
+Visualizer.prototype.vizDigraph = function(digraph) {
+
+    var that = this;
+    console.log(digraph);
+    this.page.outputSpan().innerHTML += Viz(digraph);
+}
 
 Visualizer.prototype.vizProject = function(project) {
 

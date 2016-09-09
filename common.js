@@ -27,3 +27,8 @@ function isJson(input) {
     }
     return true;
 };
+
+function isDigraph(input) {
+    console.log('isDigraph: check if ' + input + ' starts with digraph');
+    return input.startsWith('digraph');
+};

@@ -9,9 +9,11 @@ Drawer.prototype.constructor = Drawer;
 Drawer.prototype.draw = function()  {
     this.page.error('');
     var inputText = this.page.getInputText();
-    console.log('Will draw ' + inputText);
     try {
-        if(isYaml(inputText)) {
+        if(isDigraph(inputText)) {
+            this.visualizer.gviz(inputText);
+        }
+        else if(isYaml(inputText)) {
             this.visualizer.viz(YAML.parse(inputText));
         }
         else if(isJson(inputText)) {
